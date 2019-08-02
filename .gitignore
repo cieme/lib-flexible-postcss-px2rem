@@ -1,0 +1,5 @@
+.log
+.debug
+.vscode
+.idea
+/node_modules

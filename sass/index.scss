@@ -1,0 +1,345 @@
+@mixin delay200($start, $end) {
+    @for $var from $start through $end {
+        &:nth-of-type(#{$var}) {
+            -webkit-animation-delay: 0.2s*$var;
+            animation-delay: 0.2s*$var;
+        }
+    }
+}
+
+@mixin duohang($clamp, $line) {
+    word-break: break-all;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -moz-box;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-line-clamp: $clamp;
+    -moz-line-clamp: $clamp;
+    line-clamp: $clamp;
+    line-height: $line;
+}
+
+@mixin prev($col) {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23#{$col}'%2F%3E%3C%2Fsvg%3E");
+}
+
+@mixin next($col) {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23#{$col}'%2F%3E%3C%2Fsvg%3E")
+}
+
+@mixin animated($dus:1s) {
+    -webkit-animation-duration: $dus;
+    animation-duration: $dus;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@mixin abs_center {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+@mixin text_no_wrap() {
+    overflow: hidden;
+    word-break: keep-all;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+@mixin plac ($color) {
+    &:placeholder {
+        color: $color;
+    }
+
+    &:-moz-placeholder {
+        color: $color;
+    }
+
+    &:-ms-input-placeholder {
+        color: $color;
+    }
+
+    &::-moz-placeholder {
+        color: $color;
+    }
+
+    &::-webkit-input-placeholder {
+        color: $color;
+    }
+}
+
+@mixin fack {
+    display: block;
+    content: '';
+}
+
+@mixin last($a, $b) {
+    @for $var from $a through $b {
+        &:nth-last-of-type(#{$var}) {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "PingFangSC-Regular", "Microsoft Yahei";
+}
+
+body,
+html {
+    background: #fff;
+    // max-width: 750px;
+    margin: auto;
+}
+
+img {
+    border-width: 0;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+input:not([type="radio"]),
+button,
+textarea {
+    outline: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: "PingFangSC-Regular", "Microsoft Yahei";
+}
+
+ul,
+ol,
+li,
+dl,
+dt,
+dd {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-user-select: none;
+    -moz-user-focus: none;
+    -moz-user-select: none;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.cb:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.cb:before {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.inner {
+    width: 720px;
+    margin: 0 auto;
+}
+
+.bgcc {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.table {
+    display: table;
+    width: 100%;
+    height: 100%;
+
+    .table-cell {
+        display: table-cell;
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+    }
+}
+
+.img_wrap {
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.swiper-slide {
+    img {
+        width: 100%;
+    }
+}
+
+/*  */
+
+.page {
+    overflow: hidden;
+    padding-top: 130px;
+}
+
+.header {
+    height: 0.49*2*100px;
+    background: #fff;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    .inner {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .ih {
+        img {
+            height: 0.22*2*100px;
+        }
+    }
+
+    .nav_btn {
+        width: 0.18*2*100px;
+
+        .nav1 {
+            display: block;
+        }
+
+        .nav2 {
+            display: none;
+        }
+
+        &.active {
+            .nav2 {
+                display: block;
+            }
+
+            .nav1 {
+                display: none;
+            }
+        }
+    }
+}
+
+.nav {
+    position: fixed;
+    top: 0.49*2*100px;
+    bottom: 0;
+    width: 100%;
+    overflow: auto;
+    background: #171A1E;
+    display: none;
+    z-index: 10;
+
+    a {
+        font-size: 0.16*2*100px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 1);
+        line-height: 0.22*2*100px;
+    }
+
+    span {
+        padding-right: 0.23*2*100px;
+        position: relative;
+    }
+
+    .nav_container {
+        padding-top: 0.39*2*100px;
+    }
+
+    .nav_slide {
+        padding-left: 1.47*2*100px;
+    }
+
+    .nav_slide_bottom_slide {
+        padding: 0.09*2*100px 0 0.09*2*100px 0.23*2*100px;
+    }
+
+    .nav_slide_top {
+        padding: 0.16*100px*2 0;
+    }
+
+    .iconfont {
+        position: absolute;
+        right: 0;
+        top: 20px;
+        width: 0.13*100px*2;
+        height: 0.13*100px*2;
+        font-size: 0.13*100px*2;
+    }
+
+    .icon-youjiantou-01 {
+        color: #949494;
+        font-size: 0.13*100px*2;
+        display: none;
+    }
+
+    .er_down {
+        .icon-youjiantou-01 {
+            display: block;
+        }
+    }
+
+    .nav_slide_bottom {
+        display: none;
+    }
+
+    .active {
+        .nav_slide_top {
+            color: #E60012;
+
+            a {
+                color: #E60012;
+            }
+        }
+    }
+
+    .icon-xiajiantou {
+        color: #E60012;
+    }
+}
